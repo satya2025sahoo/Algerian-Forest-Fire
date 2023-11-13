@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FWI Prediction</title>
+	<style>
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			text-align: center;
+			color: #4CAF50;
+		}
+		form {
+			margin: 0 auto;
+			width: 80%;
+			max-width: 600px;
+			padding: 20px;
+			background-color: white;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+		}
+		input[type=text], select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+		input[type=submit] {
+			width: 100%;
+			background-color: #4CAF50;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+		input[type=submit]:hover {
+			background-color: #45a049;
+		}
+	</style>
+</head>
+<body>
+	<h1>FWI Prediction</h1>
+	<form action="{{ url_for('predict_datapoint')}}" method="post">
+		<label for="Temperature">Temperature:</label>
+		<input type="text" id="Temperature" name="Temperature" placeholder="Enter temperature.." required>
+
+		<label for="RH">RH:</label>
+		<input type="text" id="RH" name="RH" placeholder="Enter RH.." required>
+
+		<label for="Ws">Ws:</label>
+		<input type="text" id="Ws" name="Ws" placeholder="Enter Ws.." required>
+
+		<label for="Rain">Rain:</label>
+		<input type="text" id="Rain" name="Rain" placeholder="Enter Rain.." required>
+
+		<label for="FFMC">FFMC:</label>
+		<input type="text" id="FFMC" name="FFMC" placeholder="Enter FFMC.." required>
+
+		<label for="DMC">DMC:</label>
+		<input type="text" id="DMC" name="DMC" placeholder="Enter DMC.." required>
+
+		<label for="ISI">ISI:</label>
+		<input type="text" id="ISI" name="ISI" placeholder="Enter ISI.." required>
+
+		<label for="Classes">Classes:</label>
+		<input type="text" id="Classes" name="Classes" placeholder="Enter Classes.." required>
+
+		<label for="Region">Region:</label>
+		<input type="text" id="Region" name="Region" placeholder="Enter Region.." required>
+
+		<input type="submit" value="Predict">
+	</form>
+	<h2>
+		THE FWI prediction is {{result}}
+	</h2>
+</body>
+</html>
